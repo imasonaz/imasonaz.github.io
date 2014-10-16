@@ -9,27 +9,30 @@
     <link rel="icon" href="favicon.ico">
 
     <title>Ian's Projects - Home</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="navbar-static-top.css" rel="stylesheet">
-
-	<link href="css/custom.css" rel="stylesheet">
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+	<script type='text/javascript' src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
+    <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="navbar-static-top.css" rel="stylesheet">
+	<link type="text/css" href="css/custom.css" rel="stylesheet">
     <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="js/ie-emulation-modes-warning.js"></script>
-	<script type="text/javascript" src="js/custom.js"></script>
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="js/ie-emulation-modes-warning.js"></script>
+	<script type='text/javascript' src="js/bootstrap.min.js"></script>
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+	<script type='text/javascript'>//<![CDATA[ 
+		$(window).load(function(){
+		$('.panel .panel-heading').on('click', function(e) {
+			e.preventDefault();
+			var $this = $(this);
+			var $collapse = $this.closest('.collapse-group').find('.collapse');
+			$collapse.collapse('toggle');
+			});
+		});//]]>  
+	</script>
   </head>
 
   <body>
@@ -98,7 +101,7 @@
     </div>
 	<p>
 	<div class="col-sm-5ths col-xs-6 dropdown text-center btn btn-lg btn-info">
-			  <div href="#" lass="dropdown-toggle" data-toggle="dropdown">Programming<span class="caret"></span></div>
+			  <div href="#" class="dropdown-toggle" data-toggle="dropdown">Programming<span class="caret"></span></div>
               <ul class="dropdown-menu dropdown-full" role="menu">
                 <li><a href="#proficiencies">JAVA</a></li>
                 <li><a href="#">C/C++</a></li>
@@ -108,7 +111,7 @@
               </ul>
 	</div>
 	<div class="col-sm-5ths col-xs-6 dropdown text-center btn btn-lg btn-info">
-			  <div href="#" lass="dropdown-toggle" data-toggle="dropdown">Microprocessors/Circuits<span class="caret"></span></div>
+			  <div href="#" class="dropdown-toggle" data-toggle="dropdown">Microprocessors/Circuits<span class="caret"></span></div>
               <ul class="dropdown-menu dropdown-full" role="menu">
                 <li><a href="#proficiencies">MSP430</a></li>
                 <li><a href="#">VHDL</a></li>
@@ -118,7 +121,7 @@
               </ul>
 	</div>
 	<div class="col-sm-5ths col-xs-6 dropdown text-center btn btn-lg btn-info">
-			  <div href="#" lass="dropdown-toggle" data-toggle="dropdown">Server Management<span class="caret"></span></div>
+			  <div href="#" class="dropdown-toggle" data-toggle="dropdown">Server Management<span class="caret"></span></div>
               <ul class="dropdown-menu dropdown-full" role="menu">
                 <li><a href="#proficiencies">Windows Server 2003-2012 R2</a></li>
                 <li><a href="#">Ubuntu</a></li>
@@ -130,7 +133,7 @@
               </ul>
 	</div>
 	<div class="col-sm-5ths col-xs-6 dropdown text-center btn btn-lg btn-info">
-			  <div href="#" lass="dropdown-toggle" data-toggle="dropdown">IT Support<span class="caret"></span></div>
+			  <div href="#" class="dropdown-toggle" data-toggle="dropdown">IT Support<span class="caret"></span></div>
               <ul class="dropdown-menu dropdown-full" role="menu">
                 <li><a href="#proficiencies">Hardware & Software</a></li>
                 <li><a href="#">Windows 2000-8.1</a></li>
@@ -140,7 +143,7 @@
               </ul>
 	</div>
 	<div class="col-sm-5ths col-xs-6 dropdown text-center btn btn-lg btn-info">
-			  <div href="#" lass="dropdown-toggle" data-toggle="dropdown">Web Development<span class="caret"></span></div>
+			  <div href="#" class="dropdown-toggle" data-toggle="dropdown">Web Development<span class="caret"></span></div>
               <ul class="dropdown-menu dropdown-full" role="menu">
                 <li><a href="#proficiencies">HTML</a></li>
                 <li><a href="#">ASP</a></li>
@@ -178,30 +181,34 @@
 	<div class="page-header" id="work_experience">
         <h1>Work Experience</h1>
     </div>
-		  <div class="panel panel-default collapse-group">
-            <div class="panel-heading btn btn-lg btn-info">
-              <h3 class="panel-title"><strong>Photographer</strong></h3>
-			  <em>Bob Knight Photo/CHAPPELL Graduation Images/GradTrak (Event Photography Group) & MarathonFoto</em>
+		  <div href="#" class="panel panel-success collapse-group">
+            <div class="panel-heading col-sm-12 text-left">
+              <h3 class="panel-title text-left"><strong>Photographer</strong></h3>
+			  <em class="text-left">Bob Knight Photo/CHAPPELL Graduation Images/GradTrak (Event Photography Group) & MarathonFoto</em>
             </div>
             <div class="panel-body collapse">
               Panel content
             </div>
-          </div>
-      <div class="row">
-        <div class="col-sm-5">
-          <ul class="list-group">
-            <li class="list-group-item">Comprehensive Logic Skills</li>
-            <li class="list-group-item">Strong, self-directed Leader</li>
-            <li class="list-group-item">Great organizational abilities</li>
-            <li class="list-group-item">Inventive</li>
-			<ul class="list-unstyled">
-              <h5 class="list-group-item-heading">List group item heading</h5>
-				<li class="list-group-item-text">	Some text</li>
-				<li class="list-group-item-text">	Some text</li>
-			</ul>
-          </ul>
-        </div><!-- /.col-sm-4 -->
-	</div>
+      </div>
+	  <div href="#" class="panel panel-info collapse-group">
+            <div class="panel-heading col-sm-12 text-left">
+              <h3 class="panel-title text-left"><strong>Lead IT Technician/Front Desk Assistant</strong></h3>
+			  <em class="text-left">Northern Arizona University</em>
+            </div>
+            <div class="panel-body collapse">
+              Panel content
+            </div>
+      </div><div href="#" class="panel panel-warning collapse-group">
+            <div class="panel-heading col-sm-12 text-left">
+              <h3 class="panel-title text-left"><strong>Student Computing Assistant</strong></h3>
+			  <em class="text-left">Northern Arizona University</em>
+            </div>
+            <div class="panel-body collapse">
+              Panel content
+            </div>
+      </div>
+	 <div class="row"></div>
+
 
       <div class="page-header">
         <h1>Buttons</h1>

@@ -4,6 +4,12 @@
 .dropdown-full {
 	width: 100%; 
 }
+.btn-full {
+	width: 100%;
+}
+.panel-heading:hover {
+	cursor: pointer;
+}
 .col-xs-5ths,
 .col-sm-5ths,
 .col-md-5ths,
