@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<UPDATES>
+	<NUM>1</NUM>
+	<A>
+		<ID>NAUARD</ID>
+	</A>
+	<NAUARD>
+	echo hi
+	</NAUARD>
+</UPDATES>
