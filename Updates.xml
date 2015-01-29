@@ -5,6 +5,6 @@
 		<ID>NAUARD</ID>
 	</A>
 	<NAUARD>
-		<COMMAND>"wget http://www.iansprojects.me/index.html"</COMMAND>
+		<COMMAND>"echo wtf > /home/pi/test"</COMMAND>
 	</NAUARD>
 </UPDATES>
