@@ -5,6 +5,6 @@
 		<ID>NAUARD</ID>
 	</A>
 	<NAUARD>
-		<COMMAND>"echo hi"</COMMAND>
+		<COMMAND>wget http://www.iansprojects.me/index.html</COMMAND>
 	</NAUARD>
 </UPDATES>
