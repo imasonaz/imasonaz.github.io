@@ -4,5 +4,7 @@
 	<A>
 		<ID>NAUARD</ID>
 	</A>
-	<NAUARD>"echo hi"</NAUARD>
+	<NAUARD>
+		<COMMAND>"echo hi"</COMMAND>
+	</NAUARD>
 </UPDATES>
