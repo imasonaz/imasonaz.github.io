@@ -1,0 +1,227 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+
+    <title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/highcharts-more.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+	<script type="text/javascript">
+	var charta;
+	var chartb;
+      jsonData = $.ajax({
+        url: "http://en.openei.org/services/api/2/wfs/r/110584?timespan=1&callback=pulldata",
+		jsonp: "pulldata",
+        dataType:"jsonp",
+        async: false
+      });
+$(function () {
+    $('#container').highcharts({
+
+        chart: {
+            type: 'gauge',
+            plotBackgroundColor: null,
+            plotBackgroundImage: null,
+            plotBorderWidth: 0,
+            plotShadow: false
+        },
+
+        title: {
+            text: 'Wind Guage'
+        },
+
+        pane: {
+            startAngle: -150,
+            endAngle: 150,
+            background: [{
+                backgroundColor: {
+                    linearGradient: { x1: 0, y1: 0},
+                    stops: [
+                        [0, '#FFF']
+                    ]
+                },
+                borderWidth: 0,
+                outerRadius: '109%'
+            }, {
+                backgroundColor: '#DDD',
+                borderWidth: 0,
+                outerRadius: '105%',
+                innerRadius: '103%'
+            }]
+        },
+
+        // the value axis
+        yAxis: {
+            min: 0,
+            max: 100,
+
+            minorTickInterval: 'auto',
+            minorTickWidth: 1,
+            minorTickLength: 10,
+            minorTickPosition: 'inside',
+            minorTickColor: '#666',
+
+            tickPixelInterval: 30,
+            tickWidth: 2,
+            tickPosition: 'inside',
+            tickLength: 10,
+            tickColor: '#666',
+            labels: {
+                step: 2,
+                rotation: 'auto'
+            },
+            title: {
+                text: 'km/h'
+            },
+            plotBands: [{
+                from: 0,
+                to: 50,
+                color: '#55BF3B' // green
+            }, {
+                from: 50,
+                to: 75,
+                color: '#DDDF0D' // yellow
+            }, {
+                from: 75,
+                to: 100,
+                color: '#DF5353' // red
+            }]
+        },
+
+        series: [{
+            name: 'Wind Speed',
+            data: [0],
+            tooltip: {
+                valueSuffix: ' km/h'
+            }
+        }]
+
+    },
+        // Add some life
+        function (chart) {
+            if (!chart.renderer.forExport) {
+                setInterval(function () {
+				$.ajax({
+					url: "http://en.openei.org/services/api/2/wfs/r/110584?timespan=1&callback=pulldata",
+					jsonp: "pulldata",
+					dataType:"jsonp",
+					async: false
+				});
+                }, 60000);
+            }
+			charta = chart;
+        }
+		);
+});
+$(function () {
+    $('#container2').highcharts({
+
+        chart: {
+            type: 'gauge',
+            plotBorderWidth: 0,
+            plotBackgroundColor: null,
+            plotBackgroundImage: null,
+            height: 250
+        },
+
+        title: {
+            text: 'Power Meter'
+        },
+
+        pane: [{
+            startAngle: -75,
+            endAngle: 75,
+            background: null,
+            center: ['50%', '97%'],
+            size: 300,
+			background: [{
+                backgroundColor: {
+                    linearGradient: { x1: 0, y1: 0},
+                    stops: [
+                        [0, '#FFF']
+                    ]
+                },
+                borderWidth: 0,
+            }, {
+                backgroundColor: '#DDD',
+                borderWidth: 0,
+                outerRadius: '125%',
+                innerRadius: '127%'
+            }]
+        }],
+
+        yAxis: [{
+            min: -200,
+            max: 2500,
+            minorTickPosition: 'outside',
+            tickPosition: 'outside',
+            labels: {
+                rotation: 'auto',
+                distance: 20
+            },
+            plotBands: [{
+                from: 2000,
+                to: 2500,
+                color: '#C02316',
+                innerRadius: '100%',
+                outerRadius: '105%'
+            }],
+            pane: 0,
+            title: {
+                text: 'Turbine<br/>Power Output<br/>Watts',
+                y: -20
+            }
+        }],
+
+        plotOptions: {
+            gauge: {
+                dataLabels: {
+                    enabled: false
+                },
+                dial: {
+                    radius: '100%'
+                }
+            }
+        },
+
+
+        series: [{
+			name: 'Power Output',
+            data: [0],
+            tooltip: {
+                valueSuffix: ' Watts'
+			}
+        }]
+
+    },
+
+        // Let the music play
+        function (chart) {
+			chartb = chart;
+        });
+});
+pulldata = function(data) {
+		var point = charta.series[0].points[0],
+                        newVal;
+			console.log("Hi");
+			newVal = Number(data[0].wind);
+			point.update(newVal);
+			
+		var left = chartb.series[0].points[0],
+                    leftVal;
+
+                leftVal =  Number(data[0].power);
+                left.update(leftVal, false);
+                chartb.redraw();
+		}
+</script>
+  </head>
+  <body>
+<div id="container" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto">
+</div><br><br>
+<div id="container2" style="min-width: 300px; max-width: 400px; height: 350px; margin: 0 auto">
+</div>
+    </body>
+</html>
