@@ -12,10 +12,11 @@
 	var charta;
 	var chartb;
       jsonData = $.ajax({
-        url: "http://en.openei.org/services/api/2/wfs/r/110584?timespan=1&callback=pulldata",
-		jsonp: "pulldata",
-        dataType:"jsonp",
-        async: false
+					url: "http://en.openei.org/services/api/2/wfs/r/121022?timespan=60&callback=pulldata",
+					type: 'GET',
+					jsonp: "pulldata",
+					dataType:"jsonp",
+					async: true
       });
 $(function () {
     $('#container').highcharts({
@@ -104,10 +105,12 @@ $(function () {
             if (!chart.renderer.forExport) {
                 setInterval(function () {
 				$.ajax({
-					url: "http://en.openei.org/services/api/2/wfs/r/110584?timespan=1&callback=pulldata",
+					url: "http://en.openei.org/services/api/2/wfs/r/121022?timespan=60&callback=pulldata",
+					type: 'GET',
 					jsonp: "pulldata",
 					dataType:"jsonp",
-					async: false
+					success: pulldata,
+					async: true
 				});
                 }, 60000);
             }
@@ -203,6 +206,7 @@ $(function () {
         });
 });
 pulldata = function(data) {
+	console.log(data);
 		var point = charta.series[0].points[0],
                         newVal;
 			console.log("Hi");
