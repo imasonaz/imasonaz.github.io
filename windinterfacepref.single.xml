@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><turbine>
+	<system>
+		<sys_title>A Test Turbine</sys_title>
+		<sys_id>123abc</sys_id>
+		<serial_num>2014-0001</serial_num>
+		<sys_name>test123</sys_name>
+		<api_key>ABCDEFGHI-1234-56789-JKLM-NOPQRSTUVWXYZ</api_key>
+		<power_offset></power_offset>
+		<gmt_offset>7.0</gmt_offset>
+		<dbURL>http://mywindproject.nau.edu/httpInput.php</dbURL>
+		<mysqlURL>mywindproject.nau.edu</mysqlURL>
+		<mysqlUser>admin</mysqlUser>
+		<mysqlPass>password1</mysqlPass>
+	</system>
+</turbine>
+<!--
+	V. 3
+	Updated 10/20/2014
+-->
